@@ -45,17 +45,36 @@
       </header>
 
       <main class="content">
-        <section class="panel">
-          <h2>Harvest Tribute</h2>
-          <p>
-            Each bell toll gathers tribute from the misty boroughs. Click to
-            collect gold and awaken devotion.
-          </p>
-          <button id="harvestButton" class="primary">Toll the Bell</button>
-          <div class="progress">
-            <div class="progress-bar" id="bellProgress"></div>
+        <section class="page-section is-active" id="section-tribute">
+          <div class="panel">
+            <h2>Harvest Tribute</h2>
+            <p>
+              Each bell toll gathers tribute from the misty boroughs. Click to
+              collect gold and awaken devotion.
+            </p>
+            <button id="harvestButton" class="primary">Toll the Bell</button>
+            <div class="progress">
+              <div class="progress-bar" id="bellProgress"></div>
+            </div>
+            <p class="progress-text" id="bellText">Bell ready.</p>
           </div>
-          <p class="progress-text" id="bellText">Bell ready.</p>
+          <div class="panel">
+            <h2>Sanctum Overview</h2>
+            <p>
+              Steward your resources and watch your dominion grow as the bells
+              toll. Your active upgrades and workers drive the tribute flow.
+            </p>
+            <div class="tribute-summary">
+              <div>
+                <span class="label">Active Upgrades</span>
+                <span class="value" id="upgradeCount">0</span>
+              </div>
+              <div>
+                <span class="label">Workers Bound</span>
+                <span class="value" id="workerCount">0</span>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section class="panel panel--scroll">
