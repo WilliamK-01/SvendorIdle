@@ -39,10 +39,10 @@ button,
 }
 
 .page {
-  max-width: 1200px;
+  max-width: 1100px;
   height: 100vh;
   margin: 0 auto;
-  padding: 2.5rem 2.5rem 1.5rem;
+  padding: 2.5rem 2rem 1.5rem;
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: 1.5rem;
@@ -129,7 +129,8 @@ button,
 
 .content {
   display: grid;
-  grid-template-rows: 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
   min-height: 0;
 }
 
@@ -146,37 +147,6 @@ button,
 
 .panel--scroll {
   overflow: auto;
-}
-
-.page-section {
-  display: none;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  min-height: 0;
-}
-
-.page-section.is-active {
-  display: grid;
-}
-
-.tribute-summary {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.tribute-summary .label {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--accent-strong);
-}
-
-.tribute-summary .value {
-  font-size: 1.8rem;
-  margin-top: 0.25rem;
 }
 
 .primary,
