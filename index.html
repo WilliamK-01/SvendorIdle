@@ -32,8 +32,16 @@
               <span class="value" id="favorValue">0</span>
             </div>
             <div class="resource">
+              <span class="label">Renown</span>
+              <span class="value" id="renownValue">0</span>
+            </div>
+            <div class="resource">
               <span class="label">Tribute / sec</span>
               <span class="value" id="incomeValue">0</span>
+            </div>
+            <div class="resource">
+              <span class="label">Blessing</span>
+              <span class="value" id="blessingValue">Dormant</span>
             </div>
           </div>
         </div>
@@ -50,7 +58,7 @@
             <h2>Harvest Tribute</h2>
             <p>
               Each bell toll gathers tribute from the misty boroughs. Click to
-              collect gold and awaken devotion.
+              collect gold, awaken devotion, and chase critical strikes.
             </p>
             <button id="harvestButton" class="primary">Toll the Bell</button>
             <div class="progress">
@@ -62,7 +70,8 @@
             <h2>Sanctum Overview</h2>
             <p>
               Steward your resources and watch your dominion grow as the bells
-              toll. Your active upgrades and workers drive the tribute flow.
+              toll. Your active upgrades, workers, and rituals drive the tribute
+              flow.
             </p>
             <div class="tribute-summary">
               <div>
@@ -75,24 +84,87 @@
               </div>
             </div>
           </div>
+          <div class="panel">
+            <h2>Ascension</h2>
+            <p>
+              Sacrifice your favor to ascend. Renown grants permanent tribute
+              bonuses and enhances your clicks.
+            </p>
+            <div class="ascend-panel">
+              <div>
+                <span class="label">Renown Gain</span>
+                <span class="value" id="ascendGain">0 renown</span>
+              </div>
+              <button id="ascendButton" class="ghost" type="button">Ascend</button>
+            </div>
+          </div>
+          <div class="panel">
+            <h2>Movement &amp; Effects</h2>
+            <p>
+              Lower motion if you prefer calmer skies. This disables falling
+              coin events and dampens animations.
+            </p>
+            <button id="settingsToggle" class="ghost" type="button">Reduce Motion</button>
+          </div>
         </section>
 
         <section class="page-section panel panel--scroll" id="section-upgrades">
           <h2>Sanctum Upgrades</h2>
           <p>
             Invest your tribute into structures that empower the realm. Each
-            sanctum brings steady income.
+            sanctum brings steady income and favor.
           </p>
           <div class="upgrades" id="upgradeList"></div>
         </section>
 
-        <section class="page-section panel panel--scroll" id="section-workers">
-          <h2>Mythical Workers</h2>
+        <section class="page-section" id="section-workers">
+          <div class="panel">
+            <h2>Summon Mythical Workers</h2>
+            <p>
+              Spend favor to pull omens from the void. Rarer omens deliver
+              greater tribute.
+            </p>
+            <div class="summon-row">
+              <div>
+                <span class="label">Summon Cost</span>
+                <span class="value"><span id="summonCost">0</span> favor</span>
+              </div>
+              <button id="summonButton" class="primary" type="button">Summon Omen</button>
+            </div>
+          </div>
+          <div class="panel panel--scroll">
+            <h2>Worker Ledger</h2>
+            <div class="cards" id="cardList"></div>
+          </div>
+        </section>
+
+        <section class="page-section panel panel--scroll" id="section-rituals">
+          <h2>Rituals &amp; Blessings</h2>
           <p>
-            Unearth allies from legend. Workers join your dominion through rare
-            omens and grant passive tribute.
+            Invoke rites to amplify tribute, empower clicks, or enhance renown
+            gains. Only one ritual may be active at a time.
           </p>
-          <div class="cards" id="cardList"></div>
+          <div class="rituals" id="ritualList"></div>
+        </section>
+
+        <section class="page-section panel panel--scroll" id="section-quests">
+          <h2>Quests &amp; Decrees</h2>
+          <p>
+            Complete decrees to earn bursts of tribute and favor. New tasks
+            appear as you claim rewards.
+          </p>
+          <div class="quests" id="questList"></div>
+        </section>
+
+        <section class="page-section panel panel--scroll" id="section-stats">
+          <h2>Realm Statistics</h2>
+          <p>
+            Track the legacy of your dominion with milestones and recorded
+            deeds.
+          </p>
+          <div class="stats" id="statsList"></div>
+          <h3 class="subheading">Milestone Achievements</h3>
+          <div class="achievements" id="achievementList"></div>
         </section>
 
         <section class="page-section panel panel--scroll" id="section-chronicle">
@@ -111,6 +183,15 @@
           </button>
           <button class="nav-item" type="button" data-target="section-workers">
             Workers
+          </button>
+          <button class="nav-item" type="button" data-target="section-rituals">
+            Rituals
+          </button>
+          <button class="nav-item" type="button" data-target="section-quests">
+            Quests
+          </button>
+          <button class="nav-item" type="button" data-target="section-stats">
+            Stats
           </button>
           <button class="nav-item" type="button" data-target="section-chronicle">
             Chronicle
