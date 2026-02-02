@@ -58,7 +58,7 @@
           <p class="progress-text" id="bellText">Bell ready.</p>
         </section>
 
-        <section class="panel">
+        <section class="panel panel--scroll">
           <h2>Sanctum Upgrades</h2>
           <p>
             Invest your tribute into structures that empower the realm. Each
@@ -67,7 +67,7 @@
           <div class="upgrades" id="upgradeList"></div>
         </section>
 
-        <section class="panel">
+        <section class="panel panel--scroll">
           <h2>Mythical Workers</h2>
           <p>
             Unearth allies from legend. Workers join your dominion through rare
@@ -76,19 +76,23 @@
           <div class="cards" id="cardList"></div>
         </section>
 
-        <section class="panel">
+        <section class="panel panel--scroll">
           <h2>Realm Chronicle</h2>
           <ul class="log" id="eventLog"></ul>
         </section>
       </main>
 
-      <footer class="footer">
-        <div>
+      <nav class="bottom-nav" aria-label="Primary">
+        <button class="nav-item is-active" type="button">Tribute</button>
+        <button class="nav-item" type="button">Upgrades</button>
+        <button class="nav-item" type="button">Workers</button>
+        <button class="nav-item" type="button">Chronicle</button>
+        <div class="nav-status">
           <span>Autosaves every 10 seconds</span>
-          <button id="resetButton" class="ghost">Reset Chronicle</button>
+          <span class="footer-status" id="saveStatus">Idle.</span>
         </div>
-        <div class="footer-status" id="saveStatus">Idle.</div>
-      </footer>
+        <button id="resetButton" class="ghost">Reset Chronicle</button>
+      </nav>
     </div>
     <div class="event-overlay" id="eventOverlay" aria-live="polite"></div>
 
