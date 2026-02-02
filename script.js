@@ -319,9 +319,9 @@ function startCoinShower() {
   elements.eventOverlay.classList.add("active");
   logEvent("A shower of coins spills across the skies.");
 
-  const showerDuration = 9000;
-  const spawnInterval = 550;
-  const chestChance = 0.35;
+  const showerDuration = 7000;
+  const spawnInterval = 400;
+  const chestChance = 0.12;
   const hasChest = Math.random() < chestChance;
   const showerEnd = Date.now() + showerDuration;
 
@@ -330,7 +330,7 @@ function startCoinShower() {
     coin.className = "falling-coin";
     coin.textContent = "🪙";
     coin.style.left = `${Math.random() * 90 + 5}%`;
-    const duration = Math.random() * 3 + 6;
+    const duration = Math.random() * 2.5 + 3;
     coin.style.animationDuration = `${duration}s`;
     coin.addEventListener("click", (event) => {
       event.stopPropagation();
@@ -349,7 +349,7 @@ function startCoinShower() {
     chest.className = "falling-chest";
     chest.textContent = "🧰";
     chest.style.left = `${Math.random() * 80 + 10}%`;
-    chest.style.animationDuration = "8s";
+    chest.style.animationDuration = "6s";
     chest.addEventListener("click", (event) => {
       event.stopPropagation();
       chest.remove();
@@ -368,7 +368,7 @@ function startCoinShower() {
   }, spawnInterval);
 
   if (hasChest) {
-    setTimeout(spawnChest, 1200);
+    setTimeout(spawnChest, 1600);
   }
 
   setTimeout(() => {
