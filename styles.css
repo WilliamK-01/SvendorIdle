@@ -28,7 +28,7 @@ body {
   font-family: "IM Fell English", "Cinzel", serif;
   color: var(--text);
   letter-spacing: 0.4px;
-  overflow: hidden;
+  overflow: auto;
 }
 
 h1,
@@ -40,9 +40,9 @@ button,
 
 .page {
   max-width: 1100px;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 2.5rem 2rem 1.5rem;
+  padding: 2.5rem 2rem 2rem;
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: 1.5rem;
@@ -128,10 +128,26 @@ button,
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-height: 0;
+}
+
+.page-section {
+  display: none;
+}
+
+.page-section.is-active {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.page-section.is-active.page-section--grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
-  min-height: 0;
 }
 
 .panel {
@@ -199,14 +215,28 @@ button,
 }
 
 .bottom-nav {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   align-items: center;
   padding: 1rem 1.5rem;
   background: rgba(16, 10, 20, 0.95);
   border: 1px solid rgba(201, 168, 107, 0.3);
   box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.nav-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-left: auto;
 }
 
 .nav-item {
@@ -228,12 +258,12 @@ button,
 }
 
 .nav-status {
-  grid-column: span 3;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
   font-size: 0.8rem;
   color: var(--muted);
+  text-align: right;
 }
 
 .footer-status {
@@ -391,6 +421,10 @@ button,
 
   .sigil {
     order: -1;
+  }
+
+  .page-section.is-active.page-section--grid {
+    grid-template-columns: 1fr;
   }
 }
 

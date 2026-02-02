@@ -45,7 +45,7 @@
       </header>
 
       <main class="content">
-        <section class="page-section is-active" id="section-tribute">
+        <section class="page-section page-section--grid is-active" id="section-tribute">
           <div class="panel">
             <h2>Harvest Tribute</h2>
             <p>
@@ -77,7 +77,7 @@
           </div>
         </section>
 
-        <section class="panel panel--scroll">
+        <section class="page-section panel panel--scroll" id="section-upgrades">
           <h2>Sanctum Upgrades</h2>
           <p>
             Invest your tribute into structures that empower the realm. Each
@@ -86,7 +86,7 @@
           <div class="upgrades" id="upgradeList"></div>
         </section>
 
-        <section class="panel panel--scroll">
+        <section class="page-section panel panel--scroll" id="section-workers">
           <h2>Mythical Workers</h2>
           <p>
             Unearth allies from legend. Workers join your dominion through rare
@@ -95,22 +95,34 @@
           <div class="cards" id="cardList"></div>
         </section>
 
-        <section class="panel panel--scroll">
+        <section class="page-section panel panel--scroll" id="section-chronicle">
           <h2>Realm Chronicle</h2>
           <ul class="log" id="eventLog"></ul>
         </section>
       </main>
 
       <nav class="bottom-nav" aria-label="Primary">
-        <button class="nav-item is-active" type="button">Tribute</button>
-        <button class="nav-item" type="button">Upgrades</button>
-        <button class="nav-item" type="button">Workers</button>
-        <button class="nav-item" type="button">Chronicle</button>
-        <div class="nav-status">
-          <span>Autosaves every 10 seconds</span>
-          <span class="footer-status" id="saveStatus">Idle.</span>
+        <div class="nav-links">
+          <button class="nav-item is-active" type="button" data-target="section-tribute">
+            Tribute
+          </button>
+          <button class="nav-item" type="button" data-target="section-upgrades">
+            Upgrades
+          </button>
+          <button class="nav-item" type="button" data-target="section-workers">
+            Workers
+          </button>
+          <button class="nav-item" type="button" data-target="section-chronicle">
+            Chronicle
+          </button>
         </div>
-        <button id="resetButton" class="ghost">Reset Chronicle</button>
+        <div class="nav-meta">
+          <div class="nav-status">
+            <span>Autosaves every 10 seconds</span>
+            <span class="footer-status" id="saveStatus">Idle.</span>
+          </div>
+          <button id="resetButton" class="ghost">Reset Chronicle</button>
+        </div>
       </nav>
     </div>
     <div class="event-overlay" id="eventOverlay" aria-live="polite"></div>
