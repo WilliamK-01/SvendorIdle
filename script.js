@@ -145,6 +145,8 @@ const elements = {
   saveStatus: document.getElementById("saveStatus"),
   resetButton: document.getElementById("resetButton"),
   eventOverlay: document.getElementById("eventOverlay"),
+  upgradeCount: document.getElementById("upgradeCount"),
+  workerCount: document.getElementById("workerCount"),
 };
 
 const SAVE_KEY = "svendor-idle-save";
@@ -188,6 +190,20 @@ function renderResources() {
   elements.goldValue.textContent = formatNumber(state.gold);
   elements.favorValue.textContent = formatNumber(state.favor);
   elements.incomeValue.textContent = formatNumber(state.income);
+}
+
+function renderOverview() {
+  const upgradeTotal = state.upgrades.reduce((sum, upgrade) => sum + upgrade.owned, 0);
+  const workerTotal = Object.values(state.cardsOwned).reduce(
+    (sum, count) => sum + count,
+    0
+  );
+  if (elements.upgradeCount) {
+    elements.upgradeCount.textContent = formatNumber(upgradeTotal);
+  }
+  if (elements.workerCount) {
+    elements.workerCount.textContent = formatNumber(workerTotal);
+  }
 }
 
 function renderUpgrades() {
@@ -236,6 +252,24 @@ function renderCards() {
 
     entry.append(title, description, rarity, count);
     elements.cardList.appendChild(entry);
+  });
+}
+
+function setupNavigation() {
+  const navItems = document.querySelectorAll(".nav-item[data-target]");
+  const sections = document.querySelectorAll(".page-section");
+
+  const setActive = (targetId) => {
+    sections.forEach((section) => {
+      section.classList.toggle("is-active", section.id === targetId);
+    });
+    navItems.forEach((item) => {
+      item.classList.toggle("is-active", item.dataset.target === targetId);
+    });
+  };
+
+  navItems.forEach((item) => {
+    item.addEventListener("click", () => setActive(item.dataset.target));
   });
 }
 
@@ -305,6 +339,7 @@ function buyUpgrade(id) {
 function renderAll() {
   calculateIncome();
   renderResources();
+  renderOverview();
   renderUpgrades();
   renderCards();
   renderLog();
@@ -405,6 +440,7 @@ function tick() {
   state.lastTick = now;
   state.gold += state.income * elapsed;
   renderResources();
+  renderOverview();
   renderUpgrades();
   renderCards();
   updateBellProgress();
@@ -466,6 +502,7 @@ function resetGame() {
 
 elements.harvestButton.addEventListener("click", harvest);
 elements.resetButton.addEventListener("click", resetGame);
+setupNavigation();
 
 loadGame();
 logEvent("Night falls over the dominion.");

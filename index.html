@@ -45,50 +45,87 @@
       </header>
 
       <main class="content">
-        <section class="panel">
-          <h2>Harvest Tribute</h2>
-          <p>
-            Each bell toll gathers tribute from the misty boroughs. Click to
-            collect gold and awaken devotion.
-          </p>
-          <button id="harvestButton" class="primary">Toll the Bell</button>
-          <div class="progress">
-            <div class="progress-bar" id="bellProgress"></div>
+        <section class="page-section is-active" id="section-tribute">
+          <div class="panel">
+            <h2>Harvest Tribute</h2>
+            <p>
+              Each bell toll gathers tribute from the misty boroughs. Click to
+              collect gold and awaken devotion.
+            </p>
+            <button id="harvestButton" class="primary">Toll the Bell</button>
+            <div class="progress">
+              <div class="progress-bar" id="bellProgress"></div>
+            </div>
+            <p class="progress-text" id="bellText">Bell ready.</p>
           </div>
-          <p class="progress-text" id="bellText">Bell ready.</p>
+          <div class="panel">
+            <h2>Sanctum Overview</h2>
+            <p>
+              Steward your resources and watch your dominion grow as the bells
+              toll. Your active upgrades and workers drive the tribute flow.
+            </p>
+            <div class="tribute-summary">
+              <div>
+                <span class="label">Active Upgrades</span>
+                <span class="value" id="upgradeCount">0</span>
+              </div>
+              <div>
+                <span class="label">Workers Bound</span>
+                <span class="value" id="workerCount">0</span>
+              </div>
+            </div>
+          </div>
         </section>
 
-        <section class="panel">
-          <h2>Sanctum Upgrades</h2>
-          <p>
-            Invest your tribute into structures that empower the realm. Each
-            sanctum brings steady income.
-          </p>
-          <div class="upgrades" id="upgradeList"></div>
+        <section class="page-section" id="section-upgrades">
+          <div class="panel panel--scroll">
+            <h2>Sanctum Upgrades</h2>
+            <p>
+              Invest your tribute into structures that empower the realm. Each
+              sanctum brings steady income.
+            </p>
+            <div class="upgrades" id="upgradeList"></div>
+          </div>
         </section>
 
-        <section class="panel">
-          <h2>Mythical Workers</h2>
-          <p>
-            Unearth allies from legend. Workers join your dominion through rare
-            omens and grant passive tribute.
-          </p>
-          <div class="cards" id="cardList"></div>
+        <section class="page-section" id="section-workers">
+          <div class="panel panel--scroll">
+            <h2>Mythical Workers</h2>
+            <p>
+              Unearth allies from legend. Workers join your dominion through rare
+              omens and grant passive tribute.
+            </p>
+            <div class="cards" id="cardList"></div>
+          </div>
         </section>
 
-        <section class="panel">
-          <h2>Realm Chronicle</h2>
-          <ul class="log" id="eventLog"></ul>
+        <section class="page-section" id="section-chronicle">
+          <div class="panel panel--scroll">
+            <h2>Realm Chronicle</h2>
+            <ul class="log" id="eventLog"></ul>
+          </div>
         </section>
       </main>
 
-      <footer class="footer">
-        <div>
+      <nav class="bottom-nav" aria-label="Primary">
+        <button class="nav-item is-active" type="button" data-target="section-tribute">
+          Tribute
+        </button>
+        <button class="nav-item" type="button" data-target="section-upgrades">
+          Upgrades
+        </button>
+        <button class="nav-item" type="button" data-target="section-workers">
+          Workers
+        </button>
+        <button class="nav-item" type="button" data-target="section-chronicle">
+          Chronicle
+        </button>
+        <div class="nav-status">
           <span>Autosaves every 10 seconds</span>
-          <button id="resetButton" class="ghost">Reset Chronicle</button>
+          <span class="footer-status" id="saveStatus">Idle.</span>
         </div>
-        <div class="footer-status" id="saveStatus">Idle.</div>
-      </footer>
+        <button id="resetButton" class="ghost">Reset Chronicle</button>
+      </nav>
     </div>
     <div class="event-overlay" id="eventOverlay" aria-live="polite"></div>
 
